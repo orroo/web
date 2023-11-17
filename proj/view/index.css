@@ -1,0 +1,63 @@
+
+
+
+
+.all1{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    background: url('x.png');
+  
+}
+
+.cont{
+
+    background-color: rgb(183, 239, 246); /* Couleur de fond du conteneur */
+    border: 1px solid #ccc; /* Bordure du conteneur */
+    padding: 20px; /* Marge intérieure du conteneur */
+    max-width: 800px; /* Largeur maximale du conteneur */
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+#logo {
+    width: 5%;
+    height: 5%;
+    border-radius: 40px;
+
+    padding: 5px;
+
+}
+
+input[type="search"] {
+    width: 500px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.log {
+
+
+    display: flex;
+
+    align-items: center;
+
+}
+#logoimg{
+    width: 60px; 
+    object-fit: cover; 
+    margin: 15px; 
+    padding:  0 50px;
+    border-radius: 20px;
+    
+}
+
