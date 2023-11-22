@@ -18,41 +18,42 @@
         </nav>
     </header>
 
-    <form class="board" action="http://localhost/P/view/validation.php" method="post">
+    <form class="board" action="http://localhost/P/view/validation.php" method="post" onsubmit="return VERIFplan()">
         <div>  
             <label class="container">
-                <input type="checkbox" name="med" value="y">
+                <input type="checkbox" id="med" name="med" value="y">
                 <span class="checkmark"></span>
             </label>
             <a>mediation</a>
         </div>
         <div>  
             <label class="container">
-                <input type="checkbox" name="test"value="y">
+                <input type="checkbox" id="test" name="test"value="y">
                 <span class="checkmark"></span>
             </label>
             <a>test</a>
         </div>
         <div>  
             <label class="container">
-                <input type="checkbox" name="psy" value="y">
+                <input type="checkbox" id="psy" name="psy" value="y">
                 <span class="checkmark"></span>
             </label>
             <a>psychiatry</a>
         </div>
         <div>  
             <label class="container">
-                <input type="checkbox" name="ther" value="y">
+                <input type="checkbox" id="ther" name="ther" value="y">
                 <span class="checkmark"></span>
             </label>
             <a>therapy</a>
         </div>
         <div>
-            <input type="submit">
+            <input type="submit" id="SUB">
             <input type="reset" value="clear">
         </div>
 
     </form>
+    <script src="../controller/select.js"></script>
 
 </body>     
 </html>
