@@ -2,12 +2,12 @@
 
 require_once '../connexion.php';
 
-class planC
+class serviceC
 {
-    public function showplans()
+    public function showservices()
     {
 
-        $sql='SELECT * FROM plan';
+        $sql='SELECT * FROM service';
         $req=config::getConnexion();
         try{
             $liste=$req->query($sql);
@@ -28,27 +28,28 @@ class planC
 
     }
 
-    function addplan($plan)
+    function addservice($service)
     {
-        $sql = "INSERT INTO plan   
-        VALUES (:id, :prix,:typep, :ic)";
+        $sql = "INSERT INTO service   
+        VALUES (:id,:nom , :prix,:description, :av)";
         $req = config::getConnexion();
         try {
             $query = $req->prepare($sql);
             $query->execute([
-                'id' => $plan->getid(),
-                'prix' => $plan->getprice(),
-                'typep' => $plan->gettypep(),
-                'ic' => $plan->getidc(),
+                'id' => $service->getid(),
+                'nom' => $service->getnom(),
+                'prix' => $service->getprice(),
+                'description' => $service->getdes(),
+                'av' => $service->getv()
             ]);
         } catch (Exception $e) {
             echo 'Error: ' . $e->getMessage();
         }
     }
 
-    function deleteplan ($id)
+    function deleteservice ($id)
     {
-        $sql = "DELETE FROM plan WHERE id = :id";
+        $sql = "DELETE FROM service WHERE id = :id";
         $db = config::getConnexion();
         $req = $db->prepare($sql);
         $req->bindValue(':id', $id);
@@ -60,38 +61,40 @@ class planC
         }
     }
 
-    function showplan($id)
+    function showservice($id)
     {
-        $sql = "SELECT * from plan where id = $id";
+        $sql = "SELECT * from service where id = $id";
         $db = config::getConnexion();
         try {
             $query = $db->prepare($sql);
             $query->execute();
-            $plan = $query->fetch();
-            return $plan;
+            $ser = $query->fetch();
+            return $ser;
         } catch (Exception $e) {
             die('Error: ' . $e->getMessage());
         }
     }
 
-    function updateplan($plan, $id)
+    function updateser($ser, $id)
     {   
         $db = config::getConnexion();
         try {
             
             $query = $db->prepare(
-                'UPDATE plan SET 
+                'UPDATE service SET 
                     prix = :prix,
-                    type = :type,
-                    idc = :idc 
+                    nom = :nom,
+                    description = :description,
+                    av = :av 
                 WHERE id= :id'
             );
             
             $query->execute([
                 'id' => $id,
-                'prix' => $plan->getprice(),
-                'type' => $plan->gettypep(),
-                'idc' => $plan->getidc()
+                'prix' => $ser->getprice(),
+                'nom' => $ser->getnom(),
+                'description' => $ser->getdes(),
+                'av' => $ser->getv()
             ]);
 
             
@@ -103,7 +106,7 @@ class planC
 
     function MI()
     {
-        $sql = "SELECT MAX(id) as max from plan ";
+        $sql = "SELECT MAX(id) as max from service ";
         $db = config::getConnexion();
         try {
             $query = $db->query($sql);
