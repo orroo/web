@@ -7,7 +7,7 @@ function verifname()
     if ((document.getElementById("name").value==null)||(document.getElementById("name").value==""))
     {
         console.log("error name");
-        document.getElementById("name").style.border="2px red solid";
+        document.getElementById("name").style.border="2px solid red";
         return false;
     }
     else 

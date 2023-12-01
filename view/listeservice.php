@@ -5,8 +5,14 @@
 
 ?>
 
-<a href="http://localhost/P/view/selectservice.html"><button>Return</button></a>
-<h1>liste de service</h1>
+<link rel="stylesheet" href="style_liste.css">
+
+<a href="http://localhost/P/view/selectservice.html"><button class="links">Return</button></a>
+<a href="http://localhost/P/view/listerelations.php"><button class="links">liste de relation client-service</button></a>
+
+<center>
+    <h1>liste de service</h1>
+</center>
 
 <table border="2">
     <tr>
@@ -46,12 +52,12 @@
             </td>
             <td>
                 <form method="POST" action="http://localhost/P/view/updateservice.php">
-                    <input type="submit" name="update" value="Update">
+                    <input class="update" type="submit" name="update" value="Update">
                     <input type="hidden" value=<?PHP echo $service['id']; ?> name="id">
                 </form>
             </td>
             <td>
-                <a href="http://localhost/P/view/deleteser.php?id=<?php echo $service['id']?>">Delete</a>
+                <a href="http://localhost/P/view/deleteser.php?id=<?php echo $service['id']?>"> <button class="delete">Delete</button></a>
             </td>
     </tr>
 

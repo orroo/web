@@ -1,0 +1,217 @@
+
+body
+{
+    /*display: flex;
+    min-height: 100vh;
+    background: url('background.jpg');
+    background-size:cover;
+    background-position: center;
+    position: relative;*/
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('background.jpg');
+    background-size:cover;
+    background-position: center;
+
+
+}
+
+
+header
+{
+    background-color: gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+.logo
+{
+    font-size: 150%;
+    color: white;
+    user-select:none;
+    margin-right: 500px;
+}
+
+
+.navigation a
+{
+    position: relative;
+    font-size: 1.1em;
+    color: white;
+    text-decoration:none ;
+    font-weight: 500;
+    margin-left: 30px;
+}
+.navigation a::after
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.navigation a:hover::after
+{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.navigation .payment
+{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid white;
+    outline: none;
+    border-radius:6px ;
+    cursor: pointer; 
+    font-size: 1.1em;
+    color: white;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: 0.5s;
+
+
+}
+.navigation .payment:hover
+{
+    background: white;
+    color: #162938;
+}
+
+input
+{
+    position: relative;
+    scale: 1.5;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.board
+{
+    width: 50%;
+
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    border: 2px solid gray;
+    font-size: 200%;
+    align-items: center;
+    
+}
+
+.board .container div
+{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    align-items: center;
+    justify-content:center;
+}
+
+
+div a 
+{
+  margin-left: 50px;
+  margin-bottom: 100px;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  color: red ;
+
+}
+
+div 
+{
+  
+  margin-left: 200px;
+  margin-top:25px;
+  margin-bottom: 25px;
+}
+
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-size: 22px;
+    
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border: 1px solid black;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: rgba(18, 220, 52, 0.746);
+    border: none;
+
+    
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    
+    transform: rotate(45deg);
+  }

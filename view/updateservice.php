@@ -8,7 +8,7 @@
 </head>
 <body>
     <section>
-        <form id="servform" action="http://localhost/P/view/addser.php?id=<?php echo $_POST['id'] ?>" method="post" onsubmit="return VERIFSER()">
+        <form id="servform" action="http://localhost/P/view/updaterser2.php?id=<?php echo $_POST['id'] ?>" method="post" onsubmit="return VERIFSER()">
             <table>
                 <tr>
                     <td>
