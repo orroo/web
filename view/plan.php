@@ -25,7 +25,7 @@
         </nav>
     </header>
 
-    <form class="board" action="http://localhost/P/view/updateplan.php?id=<?php echo $_POST["id"]; ?>" method="post" >
+    <form class="board" action="http://localhost/P/view/validation.php" method="post" >
 <?php
     foreach ($liste as $service)
     {
@@ -54,7 +54,7 @@
 
                 
         <div class="fb">
-            <input type="submit" value="update" class='fbtn' id="SUB">
+            <input type="submit" class='fbtn' id="SUB">
             <input type="reset" class='fbtn' value="clear">
         </div>
 

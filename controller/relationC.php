@@ -11,16 +11,6 @@ class relationC
         $req=config::getConnexion();
         try{
             $liste=$req->query($sql);
-            /*echo '<table border="2">';
-            echo '<tr>';
-            echo '<td>ID de plan</td><td>prix</td><td>id du client affecté</td>';
-            echo '</tr>';
-            for ($i=0;$i<$liste->num_rows;$i++)
-            { 
-                echo '<tr>';
-                echo '<td>'$liste[$i]->id'</td><td>'$liste[$i]->prix'</td><td>'$liste[$i]->idclient'</td>';
-                echo '</tr>';
-            }*/
             return $liste;
         }catch (Exception $e) {
             die('Error:' . $e->getMessage());
