@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <!--<script src="../control/test.js"></script>-->
+</head>
+<body>
+    <header>
+        <a href="#"><img src="a.png" alt="" height="60%" width="60%"></a>
+        <nav class="navigation">
+            <a href="#">home</a>
+            <a href="#">about</a>
+            <a href="#">services</a>
+            <a href="#">contact</a>
+            <button class="payment">log in</button>
+        </nav>
+    </header>
+    <div class="hi">
+
+        <form action="http://localhost/try2/view/fact.php" method="post">
+            <div class="row">
+    
+                <div class="col">
+                    <h3 class="titre">facture</h3>
+    
+                    <div class="inputbox">
+                        <span>id-facture :</span>
+                        <input type="text" name="id_facture" placeholder="id">
+                    </div>
+                    <div class="inputbox">
+                        <span>prix :</span>
+                        <input type="number" id="email" name="prix" placeholder="flous" name="prix">
+                    </div>
+                    <div class="inputbox">
+                        <span>email :</span>
+                        <input type="text" placeholder="mail" name="email">
+                    </div>
+            </div>
+    
+            <input type="submit" value="print" class="submit-btn" onclick=" return verif()" id="butt">
+    
+    
+        </form>
+    
+    </div>
+    
+</body>
+</html>
