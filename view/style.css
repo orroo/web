@@ -204,3 +204,16 @@ header
     transition: 0.5s;
     transform: scale(0.96);
 }
+
+
+button
+{
+    margin-left:  25px; 
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 100%;
+    width: 100%;
+    border-radius: 50em;
+
+}

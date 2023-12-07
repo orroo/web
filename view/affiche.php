@@ -1,5 +1,5 @@
 <?php
-include "../control/send.php";
+include "../controller/send.php";
 
 $c = new credentialsC();
 $tab = $c->listcred();

@@ -1,8 +1,8 @@
 <?php
-include_once '../control/send.php';
+include_once '../controller/send.php';
 include_once '../model/credentials.php';
 require_once '../fpdf186/fpdf.php';
-include_once '../control/facturec.php';
+include_once '../controller/facturec.php';
 include_once '../model/facture.php';
 
 $error = "";
@@ -51,7 +51,7 @@ $pdf->Cell(0,10,'' ,0,1);
 $pdf->Cell(0,10,'' ,0,1);
 
 $pdf->Cell(132);
-$pdf->Cell(0,10,'price: '   ,1,1);
+$pdf->Cell(0,10,'price: ' .$ids  ,1,1);
 $pdf->Output();
 
 ?>

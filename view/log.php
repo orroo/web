@@ -1,6 +1,6 @@
 <?php
 require_once '../fpdf186/fpdf.php';
-include_once '../control/facturec.php';
+include_once '../controller/facturec.php';
 
 
 

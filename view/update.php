@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <script src="../control/test.js"></script>
+    <script src="../controller/test.js"></script>
 </head>
 <body>
     <header>
@@ -19,7 +19,7 @@
     </header>
     <div class="hi">
 
-        <form action="http://localhost/try2/view/updatecred.php" method="post">
+        <form action="http://localhost/P%20-%20Copy/view/updatecred.php" method="post">
             <div class="row">
     
                 <div class="col">

@@ -1,5 +1,5 @@
 <?php
-    include_once '../control/send.php';
+    include_once '../controller/send.php';
     include_once '../model/credentials.php';
 
     $error = "";

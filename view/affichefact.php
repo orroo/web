@@ -1,5 +1,5 @@
 <?php
-include "../control/facturec.php";
+include "../controller/facturec.php";
 
 $f = new factureC();
 $tab = $f->listfact();
@@ -8,7 +8,7 @@ $tab = $f->listfact();
 <link rel="stylesheet" href="admin_style1.css">
 <div class="tabular--wrapper">
     <div class="table-container">
-            <a href="http://localhost/try2/view/log.php">
+            <a href="http://localhost/P%20-%20Copy/view/log.php" target="_blank">
              <span>download log</span>
             </a>
         <h1>list of facture</h1>

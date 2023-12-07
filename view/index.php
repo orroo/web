@@ -7,10 +7,10 @@ use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require '../vendor/autoload.php';
-include_once '../control/send.php';
+include_once '../controller/send.php';
 include_once '../model/credentials.php';
 require_once '../fpdf186/fpdf.php';
-include_once '../control/facturec.php';
+include_once '../controller/facturec.php';
 include_once '../model/facture.php';
 
 
@@ -49,3 +49,12 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
+if ((isset($_SESSION['back']))&&(!empty($_SESSION['back'])))
+{
+?>
+
+
+<meta http-equiv="refresh" content="0; url=http://localhost/P%20-%20Copy/view/<?php echo $_SESSION['back'];  ?>"/>
+<?php
+}
+?>

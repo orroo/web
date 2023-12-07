@@ -1,5 +1,5 @@
 <?php
-    include_once '../control/send.php';
+    include_once '../controller/send.php';
     include_once '../model/credentials.php';
 
     $error = "";
@@ -18,10 +18,16 @@
         $_POST['cw'],
     );
 
+    $_SESSION['email']=$_POST['mail'];
+
+    $check=$credC->showcred($cred->getemail());
+    if ((!isset($check))||(empty($check)))
+{
     $credC->addcred($cred);
+    $_SESSION['email']=$_POST['mail'];
 
 
-$url = 'http://localhost/try2/view/index.php';
+$url = 'http://localhost/P%20-%20Copy/view/index.php';
 
 $parameters = [
 'mail' =>  $_POST['mail'],
@@ -32,7 +38,17 @@ $url .= '?'.http_build_query($parameters);
 
 ?>
 <meta http-equiv="refresh" content="0; url=<?php echo $url ?>" />
+<?php
 
+}
+else 
+{
+?>
+    <h1>Error email existe deja</h1>
+    <meta http-equiv="refresh" content="5; url=http://localhost/P%20-%20Copy/view/index.html" />
+<?php
+}
+?>
 
 
 
