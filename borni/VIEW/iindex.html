@@ -1,96 +1,67 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js">   </script>
+    <link rel="stylesheet" href="index1.css">
+    <script src="index.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inspiration Hub</title>
 </head>
 
 <body>
     <header>
-        <h1>Inspiration Hub</h1>
+        <a href="#"><img src="a.png" alt="" height="60%" width="60%"></a>
+        <nav class="navigation">
+            <a href="#">home</a>
+            <a href="#">about</a>
+            <a href="#">services</a>
+            <a href="#">contact</a>
+            <a href="file:///C:/xampp/htdocs/borni/VIEW/iindex.html">Expert Medical Counsel</a>
+            <button class="payment">log in</button>
+        </nav>
     </header>
 
     <main>
-    <section>
+        <section>
             <h2>ABOUT</h2>
             <p class="description">Navigate our site effortlessly, finding exercises that align with your goals, whether it's enhancing focus, promoting better sleep, or fostering emotional resilience.</p>
             <p class="description">Engage with our community through forums and discussion boards to share experiences, tips, and insights, creating a supportive network on your mindfulness journey.</p>
         </section>
 
-        <section>
-            <h2>Meditation and Relaxing Videos</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Description</th>
-                        <th>Video</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Meditation</td>
-                        <td>Guided meditation for stress relief</td>
-                        <td><a href="https://www.example.com/meditation_video1" target="_blank">Watch Video</a></td>
-                    </tr>
-                    <tr>
-                        <td>Relaxing</td>
-                        <td>Nature sounds for relaxation and focus</td>
-                        <td><a href="https://www.example.com/relaxing_video1" target="_blank">Watch Video</a></td>
-                    </tr>
-                    <tr>
-                        <td>Music</td>
-                        <td>Some lofi music for relaxation</td>
-                        <td><a href="https://www.example.com/music_video1" target="_blank">Watch Video</a></td>
-                    </tr>
-                    <tr>
-                        <td>anger</td>
-                        <td>release your anger</td>
-                        <td><a href="https://www.example.com/music_video1" target="_blank">Watch Video</a></td>
-                    </tr>
-                    <tr>
-                        <td>anger</td>
-                        <td>release your anger</td>
-                        <td><a href="https://www.example.com/music_video1" target="_blank">Watch Video</a></td>
-                    </tr>
-                    <tr>
-                        <td>Walking Meditation</td>
-                        <td>Combining mindfulness with walking </td>
-                        <td><a href="https://www.example.com/music_video1" target="_blank">Watch Video</a></td>
-                    </tr>
-                    <tr>
-                        <td>Body Scan Meditatio</td>
-                        <td>This involves bringing awareness to different parts of the body </td>
-                        <td><a href="https://www.example.com/music_video1" target="_blank">Watch Video</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            
-        </section>
-
-<form action="http://localhost/borni/VIEW/test.php" method="post"     onsubmit="return validateFormAndSubmit()" > 
-        <section class="comment-section">
-            <h2>Comments</h2>
-            <div class="comment-form">
-                
+        <h2>Upload Video</h2>
+        <!-- Your existing video upload form here -->
+        <form action="http://localhost/borni/VIEW/index.php" method="post" enctype="multipart/form-data">
+            <label for="video">Select video to upload:</label>
+            <br><br><br>
+            <label for="videoType">Video Type:</label>
+            <input type="text" name="post" id="videoType">
+            <br><br><br>
+            <input type="file" name="video" accept="video/*  ">
+            <br><br><br>
+            <input type="submit" value="Upload Video">
+        </form>
+        <form action="http://localhost/borni/VIEW/test.php" method="post" onsubmit="return validateFormAndSubmit()">
+            <section class="comment-section">
+                <h2>Comments</h2>
+                <div class="comment-form">
                     <textarea name="post" placeholder="Add your comment"></textarea>
                     <button type="submit" name="submit">Submit</button>
-                </form>
-            </div>
-          
-        </section>
-    </form>
-    <section class="all-comments">
-      
+                </div>
+            </section>
+        </form>
+        <script>
+            function validateFile() {
+                var fileInput = document.querySelector('input[type="file"]');
+                if (fileInput.files.length === 0) {
+                    alert("Please select a file before uploading.");
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </main>
-
-  
 </body>
 
 </html>
-
-

@@ -26,7 +26,7 @@ class CommentC {
             throw new Exception("Erreur lors de l'insertion du commentaire : " . $e->getMessage());
         }
     }
-
+    
     public function updateComment(Comment $comment) {
         try {
             $id = $comment->getId();
@@ -67,5 +67,30 @@ class CommentC {
             throw new Exception("Erreur lors de la récupération des commentaires : " . $e->getMessage());
         }
     }
+    public function getVideos() {
+        try {
+            $query = "SELECT * FROM videos";
+            $result = $this->db->query($query);
+            $videos = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            // Convert the fetched data into Video objects
+            $videoObjects = [];
+            foreach ($videos as $video) {
+                $videoObjects[] = new Video(
+                    $video['id'],
+                    $video['url_video'],
+                    $video['nom_video'],
+                    $video['type_video'],
+                    $video['duree_video']
+                );
+            }
+
+            return $videoObjects;
+        } catch (PDOException $e) {
+            throw new Exception("Error retrieving videos: " . $e->getMessage());
+        }
+    }
+
 }
+
 ?>
