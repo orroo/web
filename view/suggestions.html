@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review page </title>
+
+    <style>
+       body {
+            background-color: #846A6A;
+  background-image: linear-gradient(315deg, #846A6A 0%,  #f5f7f7 90%);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  animation: gradientAnimation 10s infinite alternate;
+  position: relative;
+        }
+        body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('leaves.webp'); 
+  opacity: 0.4;
+}
+
+        #suggestion-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 4px rgba(223, 211, 201, 0.679);
+            width: 500px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #804E49;
+        }
+
+        p {
+            margin: 1em 0;
+            font-size: 1.2em;
+        }
+        #show-details-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(133, 107, 107);/* Green background color, you can customize */
+            color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            position: relative;
+            left: 12%; 
+            transform: translateX(-50%);
+        }
+   
+ 
+
+    </style>
+</head>
+<body>
+        
+<div id="suggestion-container">
+    <div class="card">
+        <h2>We cherish your honesty!</h2>
+        <p id="suggestion-text"></p>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="card-inner"></div>
+        <button id="show-details-button" onclick="generatePDF()">Generate PDF</button>
+    </div>
+  </div>
+  <script src="index.js"></script>
+
+</body> 
+</html>
+ 

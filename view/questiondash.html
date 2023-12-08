@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="questdash.css">
+    <title>Add Question</title>
+
+</head>
+<body>
+    <form action="http://localhost/TEST/view/postquest.php" method="post">
+        
+        <label for="typeD">Type of the test</label>
+        <input type="text" name="typeD" required> 
+        
+        <label for="questxt">Question text </label>
+        <input type="text" name="questxt" required> 
+
+        <br>
+        <input type="submit" value="Add Question">
+       <a href="dashbord.html" class="go-back-btn">
+        <button type="button">Go Back</button>
+       </a> 
+       <a href="http://localhost/TEST/view/listquest.php" class="view-Q-btn" id="viewQBtn">View List </a>
+
+     
+    </form>
+
+</body>
+</html>
