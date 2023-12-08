@@ -6,8 +6,8 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(#fbfdfd, rgb(244, 245, 248));
-
+    
+    background: url('x.png');
 }
 
 
@@ -118,4 +118,6 @@ cursor: pointer;
 width: 23px;
 
 }
+
+
 

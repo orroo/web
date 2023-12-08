@@ -5,8 +5,12 @@
 
 
 
+
+
+
 include_once '../model/Post.php';
 include_once '../controlleur/PostC.php';
+
 echo '<a href="javascript:void(0);" onclick="redirectToIndex()">⮜</a>';
 echo '<script>
         function redirectToIndex() {
@@ -14,72 +18,55 @@ echo '<script>
         }
       </script>';
 
-
 $error = "";
 
-
 if (isset($_POST['post'])) {
-    $postC = new PostC(); 
-
+    $postC = new PostC();
     
     $targetDir = "uploads/";
 
-    
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
         
-      
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
-           
             $imagePath = $targetFile;
         } else {
             echo "Une erreur s'est produite lors du téléchargement de l'image.";
             exit;
         }
     } else {
-        
         $imagePath = null;
     }
 
-
-
-     if (isset($_FILES['video']) && $_FILES['video']['error'] == 0) {
+    if (isset($_FILES['video']) && $_FILES['video']['error'] == 0) {
         $targetDir = "uploads/";
         $targetVideo = $targetDir . basename($_FILES["video"]["name"]);
     
-    
         if (move_uploaded_file($_FILES["video"]["tmp_name"], $targetVideo)) {
-            
             $videoPath = $targetVideo;
         } else {
             echo "Une erreur s'est produite lors du téléchargement de la vidéo.";
             exit;
         }
     } else {
-        
         $videoPath = null;
     }
-
 
     $cred = new Post(
         null,
         $imagePath,
         $videoPath,
-        
-        
         $_POST['post'],
-        null,
-        
+        null
     );
 
     // Insertion du post dans la base de données
     $postC->InsertPost($cred);
+
+    
     header('Location: ' . $_SERVER['PHP_SELF']);
-exit;
-
+    exit;
 }
-
-
 
 if (isset($_POST['delete'])) {
     $postC = new PostC(); 
@@ -88,78 +75,145 @@ if (isset($_POST['delete'])) {
     $postC->DeletePost($postToDelete);
 }
 
-
 if (isset($_POST['update'])) {
-    $postC = new PostC(); 
+    $postC = new PostC();
     $postIdToUpdate = $_POST['update'];
     $updatedText = $_POST['updated_text'];
 
-    $postToUpdate = new Post($postIdToUpdate, null, null, $updatedText, null, null);
-    $postC->UpdatePost($postToUpdate);
+    $updatedImage = null;
+    if (isset($_FILES['updated_image']) && $_FILES['updated_image']['error'] == 0) {
+        $targetDir = "uploads/";
+        $targetFile = $targetDir . basename($_FILES["updated_image"]["name"]);
+
+        if (move_uploaded_file($_FILES["updated_image"]["tmp_name"], $targetFile)) {
+            $updatedImage = $targetFile;
+        } else {
+            echo "Une erreur s'est produite lors du téléchargement de la nouvelle image.";
+            exit;
+        }
+    }
+
+    $updatedVideo = null;
+    if (isset($_FILES['updated_video']) && $_FILES['updated_video']['error'] == 0) {
+        $targetDir = "uploads/";
+        $targetVideo = $targetDir . basename($_FILES["updated_video"]["name"]);
+
+        if (move_uploaded_file($_FILES["updated_video"]["tmp_name"], $targetVideo)) {
+            $updatedVideo = $targetVideo;
+        } else {
+            echo "Une erreur s'est produite lors du téléchargement de la nouvelle vidéo.";
+            exit;
+        }
+    }
+
+    $postToUpdate = new Post($postIdToUpdate, $updatedImage, $updatedVideo, $updatedText, null);
+    
+ 
+    if ($postC instanceof PostC) {
+        $postC->UpdatePost($postToUpdate);
+    } else {
+        echo "Erreur : La variable \$postC n'est pas correctement initialisée.";
+        exit;
+    }
+}
+
+$postC = new PostC();  
+$messages = $postC->getMessages();
+
+echo '<style>
+body {
+    
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+  background-color: #f7f7f7;
+}
+
+.search-container {
+  
+  margin-bottom: 50px;
+}
+
+.search-container form {
+   
+  display: flex;
+  align-items: center;
 }
 
 
-$postC = new PostC();  
 
-    $messages = $postC->getMessages();
-   
+#search {
+  margin:40px;
+  padding: 8px;
+  border: 3px solid #ccc;
+  border-radius: 12px;
+
+  width: 600px; 
+
+  
+}
+
+#search:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.post-comment {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.comment {
+  color: #555;
+}
+
+</style>';
 
 
-    foreach ($messages as $message) {
-        echo '<!DOCTYPE html>';
-        echo '<html lang="fr">';
-        echo '<head>';
-        echo '<meta charset="UTF-8">';
-        echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
-        echo '<link rel="stylesheet" href="indexcssp.css">';
-        echo '<title>Publication élégante</title>';
-        echo '</head>';
-        echo '<body>';
-    
-        echo '<div class="post-container">';
-        echo '<div class="post-header">';
-        echo '<div class="user-info">';
-        echo '<img src="user-avatar.jpg" alt="" style="width: 40px; height: 40px; border-radius: 50%;">';
-        echo '<span style="margin-left: 10px;">' . $message['id'] . '</span>';
-        echo '</div>';
-        echo '<span>Publié le ' . $message['datePublication'] . '</span>';
-        echo '</div>';
-        echo '<div class="post-content">';
-        echo '<p>' . $message['texte'] . '</p>';
-        if (!empty($message['image'])) {
-            echo '<img src="' . $message['image'] . '" alt="Image du post">';
-        }
 
 
-        if (!empty($message['video'])) {
-            echo '<video width="1050" height="400" controls>';
-            echo '<source src="' . $message['video'] . '" type="video/mp4">';
-            echo 'Votre navigateur ne supporte pas la lecture de la vidéo.';
-            echo '</video>';
-        }
+echo '<div class="search-container">
+        <form action="recherche.php" method="get">
+            <input type="text" id="search" name="search" placeholder="Rechercher les post avec commentaire ajouter votre nom .....">
+            <input type="submit" value="Rechercher">
+        </form>
+      </div>
+    </body>';
 
-        echo '</div>';
-        echo '<div class="post-actions">';
-        echo '<div class="action-buttons">';
-        echo '<button class="like-btn">J\'aime</button>';
-        echo '<button class="comment-btn">Commenter</button>';
-        echo '<button class="share-btn">Partager</button>';
-        echo '</div>';
-        echo '<div class="action-buttons">';
-        echo '<form method="post" action="">';
-        echo '<input type="hidden" name="delete" value="' . $message['id'] . '">';
-        echo '<input type="submit" value="Supprimer" class="delete-btn">';
-        echo '</form>';
-        echo '<form method="post" action="">';
-        echo '<input type="hidden" name="update" value="' . $message['id'] . '">';
-        echo '<input type="text" name="updated_text" placeholder="Nouveau texte">';
-        echo '<input type="submit" value="Mettre à jour" class="update-btn">';
-        echo '</form>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-    
-        echo '</body>';
-        echo '</html>';
-    }
-?>                              
+
+foreach ($messages as $message) {
+    include 'indexpagepost.php';
+}
+?>
+
+
+<?php
+
+
+
+
+
+?>

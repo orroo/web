@@ -75,7 +75,7 @@ class PostC {
             $video = $post->getVideo();
             $texte = $post->getTexte();
             $userId = $post->getIdUtilisateur();
-            
+            $datePublication = date('Y-m-d H:i:s');
 
             $query = "INSERT INTO post (image, video, texte, idUtilisateur, datePublication) 
                       VALUES (:image, :video, :texte, :idUtilisateur, :datePublication)";
@@ -83,7 +83,7 @@ class PostC {
             $result->bindParam(':image', $image);
             $result->bindParam(':video', $video);
             $result->bindParam(':texte', $texte);
-            $result->bindParam(':idUtilisateur', $userId);
+            $result->bindParam(':idUtilisateur', $idUtilisateur);
             $result->bindParam(':datePublication', $datePublication);
             $result->execute();
 
@@ -122,8 +122,73 @@ class PostC {
         }
     }
     
+
+    public function obtenirIdPostFromDatabase() {
+        try {
+            // Remplacez "votre_table_post" par le nom réel de votre table post
+            $query = $this->db->prepare('SELECT id FROM votre_table_post LIMIT 1');
+            $query->execute();
+            $result = $query->fetch(PDO::FETCH_ASSOC);
     
-}
+            if ($result) {
+                return $result['id'];
+            } else {
+                // Si la table post est vide, vous pouvez renvoyer une valeur par défaut ou gérer l'erreur comme vous le souhaitez
+                return 1; // Valeur par défaut, ajustez selon vos besoins
+            }
+        } catch (PDOException $e) {
+            // Gérez l'erreur selon vos besoins
+            throw new Exception("Erreur lors de l'obtention de l'ID du post : " . $e->getMessage());
+        }
+    }
+    
+
+    public function searchPostsAndComments($searchTerm) {
+        try {
+            $conn = $this->db;
+    
+            $sql = "SELECT post.*, comments.id AS comment_id, comments.texte AS comments_texte,comments.datePublication AS comments_date, comments.idUtilisateur AS idtt
+                    FROM post
+                    INNER JOIN comments ON post.id = comments.idPost
+                    WHERE post.idUTilisateur LIKE :searchTerm";
+    
+            $result = $conn->prepare($sql);
+    
+            $searchTerm = '%' . $searchTerm . '%';
+            $result->bindParam(':searchTerm', $searchTerm, PDO::PARAM_STR);
+    
+            $result->execute();
+    
+            return $result;
+
+        
+
+        } catch (PDOException $e) {
+            throw new Exception("Erreur lors de la recherche de posts et commentaires : " . $e->getMessage());
+        }
+    }
+
+
+
+
+
+
+
+    }
+
+
+   
+    
+    
+
+    
+   
+    
+
+    
+
+
+    
 
 
 
