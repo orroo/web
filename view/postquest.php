@@ -1,5 +1,5 @@
 <?php
-    include_once '../control/sendquest.php';
+    include_once '../controller/sendquest.php';
     include_once '../model/addquest.php';
     require_once '../config.php';
 

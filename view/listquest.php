@@ -1,5 +1,5 @@
 <?php
-include "../control/sendquest.php";
+include "../controller/sendquest.php";
 
 $q = new questionsC ();
 $tab = $q->listquest();

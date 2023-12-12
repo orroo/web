@@ -42,10 +42,10 @@ $pdf->Ln(10);
 $pdf->SetY($pdf->GetY() - 10);
 $pdf->Rect(130, $pdf->GetY(), 60, 30, 'D');
 
-$signatureImagePath = 'C:\xampp\htdocs\TEST\view/signature.png';
+$signatureImagePath = 'signature.png';
 $pdf->Image($signatureImagePath, 135, $pdf->GetY() + 5, 50, 20);
 
-$photoPath = 'C:\xampp\htdocs\TEST\view/contactsform.png'; 
+$photoPath = 'contactsform.png'; 
 $pdf->Image($photoPath, 135, $pdf->GetY() + 40, 50, 50);
 
 // Output the PDF

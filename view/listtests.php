@@ -1,5 +1,5 @@
 <?php
-include "../control/sendtest.php";
+include "../controller/sendtest.php";
 
 $t = new testsC();
 $tab = $t->listtest();
@@ -31,7 +31,7 @@ $tab = $t->listtest();
                 <td><?= $test['taille']; ?></td>
                 <td><?= $test['idT']; ?></td>
                 <td align="center">
-                    <form method="POST" action="http://localhost/TEST/view/update.php">
+                    <form method="POST" action="update.php">
                         <input type="submit" name="update" value="Update" class="update">
                         <input type="hidden" value=<?PHP echo $test['type']; ?> type="id">
                     </form>

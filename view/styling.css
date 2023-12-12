@@ -95,6 +95,7 @@ ul li label {
 }
 
 button {
+  
   background-color: rgb(69, 63, 58);
   color: #fff;
   border: none;
@@ -105,6 +106,10 @@ button {
   font-family: inherit;
   padding: 1.3rem;
   transition: background-color 0.3s ease-in-out;
+}
+a{
+  
+  text-decoration: none;
 }
 
 button:hover {

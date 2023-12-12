@@ -8,7 +8,7 @@
 
 </head>
 <body>
-    <form action="http://localhost/TEST/view/update.php" method="post">
+    <form action="update.php" method="post">
         
         <label for="type">Type of Test? </label>
         <input type="text" name="type" required> 
@@ -24,11 +24,11 @@
        <a href="dashbord.html" class="go-back-btn">
         <button type="button">Go Back</button>
        </a> 
-       <a href="http://localhost/TEST/view/listtests.php" class="view-tests-btn" id="viewTestsBtn">View List </a>
+       <a href="listtests.php" class="view-tests-btn" id="viewTestsBtn">View List </a>
 
      
     </form>
-    <script src="C:\xampp\htdocs\TEST\view/dash.js"></script> 
+    <script src="dash.js"></script> 
 
 </body>
 </html>

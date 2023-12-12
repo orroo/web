@@ -167,15 +167,20 @@ submitBtn.addEventListener('click', () => {
     //const totalScore = userResponses.reduce((sum, score) => sum + score, 0);
     let pdfURL = ''; 
     if (totalScore > 10) {
-      pdfURL = 'intensivepdf.php';
+      
+      var score=2;
   } else if (totalScore > 5) {
-      pdfURL = 'moderatepdf.php';
+      
+      var score=1;
   } else {
-      pdfURL = 'healthypdf.php';
+      
+      var score=0;
   } 
   console.log('PDF URL:', pdfURL);
-  const newWindow = window.open(pdfURL, '_blank');
+  const newWindow =window.open("finquiz.php?score="+score);
+  
     if (newWindow) {
+      
         newWindow.focus();
     } 
 

@@ -27,7 +27,7 @@ try {
     
 
     //Attachments
-    $mail->addAttachment(path:'C:\xampp\htdocs\TEST\view/poster.png', name:"Mental-harbour-launch.png");    //Optional name
+    $mail->addAttachment(path:'poster.png', name:"Mental-harbour-launch.png");    //Optional name
 
     //Content
     $mail->isHTML(true);                                 
