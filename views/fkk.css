@@ -1,0 +1,279 @@
+@font-face {
+    font-family: ok ;
+    src: url(Poppins-SemiBoldItalic.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: ok;
+}
+body{
+    min-height: 100vh;
+    width: 100%;
+    background-image:url(x.png);
+    background-position: center;
+    background-size: cover ;
+    position: relative;
+}
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section.active{
+    height: 520px;
+}
+
+section div.main{
+    margin: 32px 0;
+    padding: 30px;
+    width: 734px;
+    height: 910px;
+    background:#ffffff98 ;
+    background-position: center;
+    background-size: cover ;
+    position: relative;
+    border-radius: 20px;
+}
+section div.main h1{
+    margin: 48px 0;
+    font-family:ok;
+    color: black;
+    font-size:52px;
+}
+
+section div.main .accounts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section div.main .accounts button{
+    width: 350px;
+    text-align: center;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    margin: 5px 0;
+    border-radius: 500px;
+    color: black;
+    background: transparent;
+    border: 1px solid #2d2d2d;
+    font-family:ok;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+section div.main .accounts button img{
+    width: 25px ;
+    float: left;
+    margin: 0 10px;
+}
+
+section div.main .accounts button span{
+    position:relative;
+    top: 3px;
+}
+
+section div.main .accounts button:hover{
+    background-color: #727272;
+    color: rgba(255, 255, 255, 0.689);
+    width: 370px;
+    padding: 12px 22px;
+}
+section div.main .accounts button:active{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+
+section div.main hr{
+    margin: 30px 120px;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    border-image: initial;
+    border-top: 2px solid black;
+}
+
+section div.main .log-in{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+    border-bottom: 2px solid black;
+  } 
+.input-box label{
+    position: absolute;
+    font-family:ok ;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size:1em;
+    color: black;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 140%;
+    font-family: ok;
+    font-size: 1em;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 35px 0 5px;
+    margin: 15px 0;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    line-height: 56px;
+    scale: 1.4;
+}
+
+section div.main .log-in button span{
+    position:relative;
+    top: 6px;
+}
+section div.main .log-in button:hover{
+    background-color: #ffffff;
+    color: black;
+    font-weight: 600;
+    font-family:ok;
+    transition: 0.3s;
+    transform: scale(0.98);
+}
+
+section div.footer{
+    font-style: normal;
+    font-family:ok;
+    color: rgba(240, 255, 255, 0.734) ;
+}
+
+.switch{
+    margin: 0;
+    padding: 0;
+    font-family:ok;
+}
+
+.switch input[type=checked]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+.switch label {
+    margin: 10px 0px 20px 0px;
+    cursor: pointer;
+    padding: 3px;
+    width: 32px;
+    height: 16px;
+    background: #727272;
+    display: block;
+    border-radius: 50em;
+    position: relative;
+    transition: .2s;
+    box-sizing: border-box;
+}
+.switch label::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50em;
+    transition: .2s;
+}
+
+.switch input:active+label{
+    background-color: #727272;
+}
+
+.switch input:checked+label{
+    background: rgba(18, 220, 52, 0.746);
+}
+
+.switch input:checked+label::after{
+    transform: translateX(calc(100% + 5px));
+    user-select: none;
+}
+
+input#switch{
+    display: none;
+}
+.switch span{
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    font-family:ok;
+    position:relative;
+    left: 7px;
+    bottom: 12px;
+}
+
+section div.main .log-in button{
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-family:ok;
+    padding: 8px 32px;
+    height: 48px;
+    width: 324px;
+    letter-spacing: .4px;
+    font-size: 16px;
+    margin: 20px 0px;
+}
+
+section div.main .log-in a{
+    display: block;
+    text-align: center;
+    font-family:ok;
+    color: rgb(4, 147, 4);
+    font-weight: 400;
+    text-decoration: none;
+}
+section div.main .log-in a:hover{
+    text-decoration: underline;
+}
+
+section div.main .last{
+    margin: 10px 0;
+    text-align: center;
+}
+
+section div.main .last span{
+    font-family:ok;
+    color: black;
+    margin-right: 3px;
+}
+
+section div.main .last a {
+    font-family:ok;
+    color: rgb(4, 147, 4);
+    text-decoration: none;
+}
+section div.main .last a:hover{
+    text-decoration: underline;
+}
+.error{
+    color: red;
+  }
