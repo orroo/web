@@ -1,6 +1,6 @@
 <?php 
 require_once '../model/User.php';
-require_once '..\config.php';
+require_once '../connexion.php';
 include_once '../controller/nudes.php';
 ?>
 <html lang="en">
@@ -15,7 +15,7 @@ include_once '../controller/nudes.php';
 <body>
     <div class="hero">
         <nav>
-            <a href="http://localhost/shit/view/main_page.php"><img src="a.png" class="logo" height="60%" width="60%" alt="Image 1"></a>
+            <a href="main_page.php"><img src="a.png" class="logo" height="60%" width="60%" alt="Image 1"></a>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Services</a></li>
@@ -32,13 +32,13 @@ include_once '../controller/nudes.php';
                         </div>
                         <hr>
 
-                        <a href="http://localhost/shit/view/profile.php" class="sub-menu-link">
+                        <a href="profile.php" class="sub-menu-link">
                             <img src="images/profile.png">
                             <p>Edit Profile</p>
                             <span>></span>
                         </a>
 
-                        <a href="http://localhost/shit/view/index.php" class="sub-menu-link">
+                        <a href="indexU.php" class="sub-menu-link">
                             <img src="images/setting.png">
                             <p>Settings & Privacy</p>
                             <span>></span>
@@ -50,14 +50,14 @@ include_once '../controller/nudes.php';
                             <span>></span>
                         </a>
 
-                        <a href="http://localhost/shit/view/logout.php" class="sub-menu-link">
+                        <a href="logout.php" class="sub-menu-link">
                             <img src="images/logout.png">
                             <p>Logout</p>
                             <span>></span>
                         </a>
 
                         <?php if ((isset($_SESSION['admin']))&&($_SESSION['admin']==1)){
-                             echo '<a href="http://localhost/shit/view/admin.html" class="sub-menu-link">
+                             echo '<a href="admin.html" class="sub-menu-link">
                              <img src="images/profile.png">
                              <p>Dashboard</p>
                              <span>></span>

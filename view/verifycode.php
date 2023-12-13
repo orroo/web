@@ -1,5 +1,5 @@
 <?php 
-require_once '../Controller/nudes.php';
+require_once '../controller/nudes.php';
 require_once '../model/User.php';
 
 $code=$_SESSION['code'];
@@ -19,7 +19,7 @@ echo'
 <body>
     <div class="container">
         <h1>Thank you for your time . You will recieve a code right away !</h1>
-        <form action="http://localhost/shit/view/verifycode.php" method="POST">
+        <form action="verifycode.php" method="POST">
             <label for="code" style="font-weight: 700;">Type the code below:</label>
             <input type="number" name="code" id="code" required>
             <input type="submit" value="Submit Code">
@@ -42,7 +42,7 @@ if (isset($_POST["code"])&&(!empty($_POST["code"])))
         echo '<meta
         http-equiv="refresh"
         content="0;
-        url=http://localhost/shit/view/resetpass.php"
+        url=resetpass.php"
         />';
     }
     else{

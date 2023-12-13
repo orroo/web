@@ -4,7 +4,7 @@
 
 if(isset($_GET['logout'])){
     session_destroy();
-    header('location:http://localhost/shit/view/login.php');
+    header('location:login.php');
     exit();
 }
 ?>
@@ -48,7 +48,7 @@ if(isset($_GET['logout'])){
                             </dl>
                             <hr>
                             <div class="text-center">
-                                <a href="http://localhost/shit/view/testlogin/index.php?logout" class="btn btn btn-danger btn-sm rounded-0">Logout</a>
+                                <a href="testlogin/index.php?logout" class="btn btn btn-danger btn-sm rounded-0">Logout</a>
         
                             </div>
                         </div>

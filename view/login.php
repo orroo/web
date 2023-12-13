@@ -18,13 +18,13 @@
             <br>
             <h1><center>Sign In</center></h1>
             <div class="accounts">
-                <a href="http://localhost/shit/view/testlogin/login.php"><button class="a" id="g"><img src="g.png"><span>Continue with Google</span></button></a>
+                <a href="testlogin/login.php"><button class="a" id="g"><img src="g.png"><span>Continue with Google</span></button></a>
                 <a href="https://www.facebook.com/?locale=ar_AR"><button class="a" id="f"><img src="f.png"><span>Continue with Facebook</span></button></a>
                 <a href="https://twitter.com/?lang=ar"><button class="a" id="t"><img src="t.png"><span>Continue with Twitter</span></button></a>
             </div>
             <hr>
             <div class="log-in">
-                <form action="http://localhost/shit/view/veriflogin.php" method="post">
+                <form action="veriflogin.php" method="post">
                     <div class="input-box">
                         <span class="icon">
                             <ion-icon name="mail"></ion-icon>

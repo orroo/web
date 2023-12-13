@@ -1,6 +1,6 @@
 <?php
 require_once '../model/User.php';
-require_once '..\config.php';
+require_once '../connexion.php';
 include_once '../controller/nudes.php';
 
 

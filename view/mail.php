@@ -7,9 +7,9 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once '../Controller/nudes.php';
 require_once '../model/User.php';
-require 'C:\xampp\htdocs\shit\controller\PHPMailer-master\src\Exception.php';
-require 'C:\xampp\htdocs\shit\controller\PHPMailer-master\src\PHPMailer.php';
-require 'C:\xampp\htdocs\shit\controller\PHPMailer-master\src\SMTP.php';
+require_once '..\controller\PHPMailer-master\src\Exception.php';
+require_once '..\controller\PHPMailer-master\src\PHPMailer.php';
+require_once '..\controller\PHPMailer-master\src\SMTP.php';
 
 $name = ($_POST["Username"]);
 $email=($_POST["Email"]);
@@ -22,6 +22,11 @@ if (isset($fk)&&(!empty($fk))){
         $_SESSION['Username']=$name;
         $_SESSION['img']=$fk['img'];
         $_SESSION['Password']=$fk['Password'];
+        $_SESSION['bio']=$fk['bio'];
+        $_SESSION['country']=$fk['country'];
+        $_SESSION['phone']=$fk['phone'];
+        
+
         try {
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
@@ -40,7 +45,7 @@ if (isset($fk)&&(!empty($fk))){
             $mail->From = "riahi.omar@esprit.tn";
             $mail->FromName = "Omar Riahi - Mental Harbour";
             $mail->addAddress($email,$name);
-            $mail->addAttachment("C:\\xampp\htdocs\shit\controller\PHPMailer-master\\file.txt", "File.txt");
+            $mail->addAttachment("..\controller\PHPMailer-master\\file.txt", "File.txt");
             $mail->addAttachment($htmlFileName);
             $mail->isHTML(true);
             $mail->Subject = "Subject Text";
@@ -59,7 +64,7 @@ if (isset($fk)&&(!empty($fk))){
         echo '<meta
         http-equiv="refresh"
         content="0;
-        url=http://localhost/shit/view/verifycode.php"
+        url=verifycode.php"
         />';
     }
     else{

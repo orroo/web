@@ -1,6 +1,6 @@
 <?php
 
-require_once '../Controller/nudes.php';
+require_once '../controller/nudes.php';
 require_once '../model/User.php';
 $error = "";
 

@@ -1,5 +1,5 @@
 <?php
-  require_once '../Controller/nudes.php';
+  require_once '../controller/nudes.php';
   require_once '../model/User.php';
 
     $pass=$_SESSION['Password'];
@@ -8,6 +8,9 @@
     $email=$_SESSION['Email'];
     $name=$_SESSION['Username'];
     $img=$_SESSION['img'];
+    $bio=$_SESSION['bio'];
+    $country=$_SESSION['country'];
+    $phone=$_SESSION['phone'];
     if (isset($_POST["password"])&&(!empty($_POST["password"]))&& isset($_POST["confirmPassword"])&&(!empty($_POST["confirmPassword"]))){
       $password=($_POST["password"]);
       $cpassword=($_POST["confirmPassword"]);
@@ -17,14 +20,17 @@
           $name,
           $email,
           $password,
-          $img
+          $img,
+          $bio,
+          $country,
+          $phone
         );
         $lc->UpdateUser($register);
 
         echo '<meta
         http-equiv="refresh"
         content="0;
-        url=http://localhost/shit/view/login.php"
+        url=login.php"
         />'; 
       }
     }
@@ -33,7 +39,7 @@
         <link rel="stylesheet" href="reset.css">
         <script src="../controller/verif.js"></script>
         <div class="cardStyle">
-          <form action="http://localhost/shit/view/resetpass.php" method="post" name="signupForm" id="signupForm">
+          <form action="resetpass.php" method="post" name="signupForm" id="signupForm">
             
             <img src="" id="signupLogo"/>
             

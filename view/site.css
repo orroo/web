@@ -30,17 +30,24 @@ nav{
     position: relative;
     top: 0;
     left: 0;
-}
-.hero img.user{
+        z-index: 1000;
+    }
+    img.user{
     width: 60px;
     border-radius:50%;
     cursor: pointer;
     margin-right:-150px;
     margin-top: 10px;
 }
+.logou{
+    width: 40rem;
+    margin: 10px 0 0 -160px;
+    z-index: 1000;
+}
 .logo{
     width: 350px;
     margin: 10px 0 0 -160px;
+    z-index: 1000;
 }
 nav ul{
     width: 100%;
@@ -91,6 +98,7 @@ nav ul li a:hover::after
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
+    z-index: 1000;
 }
 .sub-menu-wrap.open-menu{
     max-height: 400px;

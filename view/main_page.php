@@ -1,6 +1,6 @@
 <?php 
 require_once '../model/User.php';
-require_once '..\config.php';
+require_once '../connexion.php';
 include_once '../controller/nudes.php';
 ?>
 <html lang="en">
@@ -30,13 +30,13 @@ include_once '../controller/nudes.php';
                     </div>
                     <hr>
 
-                    <a href="http://localhost/shit/view/profile.php" class="sub-menu-link">
+                    <a href="profile.php" class="sub-menu-link">
                         <img src="images/profile.png">
                         <p>Edit Profile</p>
                         <span>></span>
                     </a>
 
-                    <a href="http://localhost/shit/view/index.php" class="sub-menu-link">
+                    <a href="indexU.php" class="sub-menu-link">
                         <img src="images/setting.png">
                         <p>Settings & Privacy</p>
                         <span>></span>
@@ -48,7 +48,7 @@ include_once '../controller/nudes.php';
                         <span>></span>
                     </a>
 
-                    <a href="http://localhost/shit/view/logout.php" class="sub-menu-link">
+                    <a href="logout.php" class="sub-menu-link">
                         <img src="images/logout.png">
                         <p>Logout</p>
                         <span>></span>
@@ -56,7 +56,7 @@ include_once '../controller/nudes.php';
 
                     
                     <?php if ((isset($_SESSION['admin']))&&($_SESSION['admin']==1)){
-                             echo '<a href="http://localhost/shit/view/admin.html" class="sub-menu-link">
+                             echo '<a href="admin.html" class="sub-menu-link">
                              <img src="images/profile.png">
                              <p>Dashboard</p>
                              <span>></span>
@@ -113,7 +113,7 @@ include_once '../controller/nudes.php';
             </div>
         </div>
         <div class="learnn">
-            <a href="#"class="btn">Learn more</a>
+            <a href="test.php" class="btn">Learn more</a>
         </div>
     </section>
     <section class="nn">

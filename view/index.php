@@ -1,171 +1,169 @@
-<?php 
-require_once '../model/User.php';
-require_once '..\config.php';
-include_once '../controller/nudes.php';
+<?php
+    require_once '../model/User.php';
+    require_once '../connexion.php';
+    include_once '../controller/nudes.php';
 ?>
-
-<!--Website: wwww.codingdung.com-->
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
     <link rel="stylesheet" href="style.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <title>Document</title>
+    <script src="../controller/test.js"></script>
 </head>
-
 <body>
-    <form method="post" action="updateEmail.php">
-    <div class="container light-style flex-grow-1 container-p-y">
-        <h4 class="font-weight-bold py-3 mb-4">
-            Account settings
-        </h4>
-        <div class="card overflow-hidden">
-            <div class="row no-gutters row-bordered row-border-light">
-                <div class="col-md-3 pt-0">
-                    <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action active" data-toggle="list"
-                            href="#account-general">General</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-info">Info</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-notifications">Notifications</a>
+    <header>
+    <nav>
+            <a href="main_page.php"><img src="a.png" class="logou" height="60%" width="60%" alt="Image 1"></a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+             <img class='user' src=<?php echo 'data:image/png;base64,'.base64_encode($_SESSION['img']);?> onclick=toggleMenu()>
+            
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src=<?php echo 'data:image/png;base64,'.base64_encode($_SESSION['img']);?>>
+                        <h2 name="name"><?php echo $_SESSION["Username"]?></h2>
                     </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="tab-content">
-                        <div class="tab-pane fade active show" id="account-general">
-                            <hr class="border-light m-0">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="Username" name="Username" value="<?php echo $_SESSION["Username"]?>" readonly />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control" id="Email" name="Email" value="<?php echo $_SESSION["Email"]?>"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="account-info">
-                            <div class="card-body pb-2">
-                                <div class="form-group">
-                                    <label class="form-label">Bio</label>
-                                    <textarea class="form-control" rows="5" id="bio" name="bio" value="<?php echo $_SESSION["bio"]?>"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Country</label>
-                                    <select class="custom-select"  id="country" name="country">
-                                        <option>USA</option>
-                                        <option>Canada</option>
-                                        <option>UK</option>
-                                        <option selected >Tunisia</option>
-                                        <option>Maroc</option>
-                                        <option>Algeria</option>
-                                        <option>Libye</option>
-                                        <option>Germany</option>
-                                        <option>France</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Contacts</h6>
-                                <div class="form-group">
-                                    <label class="form-label">Phone</label>
-                                    <input type="text" class="form-control"  id="phone" name="phone" value="<?php echo $_SESSION["phone"]?>">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="tab-pane fade" id="account-notifications">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Activity</h6>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input" checked>
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">Email me when someone comments on my article</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input" checked>
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">Email me when someone answers on my forum
-                                            thread</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input">
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">Email me when someone follows me</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Application</h6>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input" checked>
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">News and announcements</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input">
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">Weekly product updates</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="switcher">
-                                        <input type="checkbox" class="switcher-input" checked>
-                                        <span class="switcher-indicator">
-                                            <span class="switcher-yes"></span>
-                                            <span class="switcher-no"></span>
-                                        </span>
-                                        <span class="switcher-label">Weekly blog digest</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <hr>
+
+                    <a href="profile.php" class="sub-menu-link">
+                        <img src="images/profile.png">
+                        <p>Edit Profile</p>
+                        <span>></span>
+                    </a>
+
+                    <a href="indexU.php" class="sub-menu-link">
+                        <img src="images/setting.png">
+                        <p>Settings & Privacy</p>
+                        <span>></span>
+                    </a>
+
+                    <a href="#" class="sub-menu-link">
+                        <img src="images/help.png">
+                        <p>Help & Support</p>
+                        <span>></span>
+                    </a>
+
+                    <a href="logout.php" class="sub-menu-link">
+                        <img src="images/logout.png">
+                        <p>Logout</p>
+                        <span>></span>
+                    </a>
+
+                    
+                    <?php if ((isset($_SESSION['admin']))&&($_SESSION['admin']==1)){
+                             echo '<a href="admin.html" class="sub-menu-link">
+                             <img src="images/profile.png">
+                             <p>Dashboard</p>
+                             <span>></span>
+                            </a>';
+                        } ?>
+
                 </div>
             </div>
-        </div>
-        <div class="text-right mt-3">
-            <input type="submit" class="btn btn-primary" value="Save changes">&nbsp;
-            <a href="http://localhost/shit/view/profile.php"><button type="button" class="btn btn-default">Cancel</button></a>
-        </div>
+        </nav>
+    </header>
+    <div class="hi">
+
+        <form action="post.php" method="post">
+            <div class="row">
+    
+                <div class="col">
+                    <h3 class="titre">billing address</h3>
+    
+                    <div class="inputbox" >
+                        <span>full name :</span>
+                        <input type="text" id="name" name="name" placeholder="yahya elkaed">
+                        <span class="hh" id="nameError"></span>
+
+                    </div>
+                    <div class="inputbox">
+                        <span>email :</span>
+                        <input type="email" id="email" placeholder="example@example.com" value="<?php 
+                         if ((isset($_SESSION['Email']))&&(!empty($_SESSION['Email'])))
+                        {
+                            echo $_SESSION['Email'];
+                        } ?>" name="mail">
+                        <span class="hh" id="emailError"></span>
+                    </div>
+                    <div class="inputbox">
+                        <span>address :</span>
+                        <input type="text" placeholder="room - street - locality" name="address" >
+                        <span class="hh" id="addressError"></span>
+                    </div>
+                    <div class="inputbox">
+                        <span>city :</span>
+                        <input type="text" placeholder="manouba" id="city" name="city">
+                        <span class="hh" id="cityError"></span>
+                    </div>
+                    <div class="flex">
+                        <div class="inputbox">
+                            <span>state :</span>
+                            <input type="text" placeholder="tunis" id="state" name="state">
+                            <span class="hh" id="stateError"></span>
+                        </div>
+                        <div class="inputbox">
+                            <span>zip code :</span>
+                            <input type="text" placeholder="123 456" id="zip" name="zip">
+                            <span class="hh" id="zipError"></span>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="col">
+                    <h3 class="titre">payment</h3>
+    
+                    <div class="inputbox">
+                        <span>cards accepted :</span>
+                        <img src="card_img.png" alt="">
+                    </div>
+                    <div class="inputbox">
+                        <span>name on card :</span>
+                        <input type="text" placeholder="mr.yahya elkaed" id="namec" name="noc">
+                        <span class="hh" id="namecError"></span>
+                    </div>
+                    
+                    <div class="inputbox">
+                        <span>credit card number :</span>
+                        <input type="text   " placeholder="1111-2222-3333-4444" id="card" name="ccn">
+                        <span class="hh" id="cardError"></span>
+                    </div>
+                    <div class="inputbox">
+                        <span>exp date :</span>
+                        <input type="date" placeholder="date" id="xp" name="xp">
+                        <span class="hh" id="expError"></span>
+                    </div>
+                    <div class="flex">
+                        <div class="inputbox">
+                            <span>CW :</span>
+                            <input type="text" placeholder="1234" id="cw" name="cw">
+                            <span class="hh" id="cwError"></span>
+                        </div>
+                    </div>
+                </div>
+    
+    
+            </div>
+    
+            <input type="submit" value="proceed to chekout" class="submit-btn" onclick=" return verif()" id="butt">
+    
         </form>
+        
+    
     </div>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
-
+    <script>
+        let subMenu=document.getElementById("subMenu");
+        function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
+        }
     </script>
+    
 </body>
-
 </html>

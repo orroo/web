@@ -9,7 +9,7 @@ $gclient = new Google\Client();
 
 $gclient->setClientId($clientID);
 $gclient->setClientSecret($secret);
-$gclient->setRedirectUri('http://localhost/shit/view/testlogin/login.php');
+$gclient->setRedirectUri('testlogin/login.php');
 
 
 $gclient->addScope('email');
@@ -53,7 +53,7 @@ if(isset($_GET['code'])){
         }
         $_SESSION['ucode'] = $_GET['code'];
 
-        header('location:http://localhost/shit/view/testlogin/index.php');
+        header('location:index.php');
         exit;
 
     }

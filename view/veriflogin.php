@@ -25,9 +25,6 @@
         $_SESSION["bio"]=$user["bio"];
         $_SESSION["country"]=$user["country"];
         $_SESSION["phone"]=$user["phone"];
-        echo $user["bio"];
-        echo $user["country"];
-        echo $user["phone"];
         
         
         if($data->success==true){
@@ -37,7 +34,7 @@
             echo '<meta
             http-equiv="refresh"
             content="0;
-            url=http://localhost/shit/view/admin.html"
+            url=admin.html"
             />';
             }
     else{
@@ -50,7 +47,7 @@
         echo '<meta
             http-equiv="refresh"
             content="0;
-            url=http://localhost/shit/view/main_page.php"
+            url=main_page.php"
             />';
     }
         }
@@ -65,7 +62,7 @@
             <meta
             http-equiv="refresh"
             content="3;
-            url=http://localhost/shit/view/login.php"
+            url=login.php"
             </body>
         />';
         }
@@ -82,7 +79,7 @@
         <meta
         http-equiv="refresh"
         content="3;
-        url=http://localhost/shit/view/login.php"
+        url=login.php"
         </body>
     />';
     }
