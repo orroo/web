@@ -1,0 +1,143 @@
+
+
+
+.post-container {
+    width: 100%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.post-header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-info ion-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.user-info span {
+    font-weight: bold;
+}
+
+.post-date {
+    font-size: 14px;
+    color: #555;
+}
+
+.post-details {
+    display: flex;
+    align-items: center;
+}
+
+.delete-btn,
+.update-btn {
+    margin-left: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.post-details {
+    display: flex;
+    align-items: center;
+}
+
+.post-date {
+    font-size: 14px;
+    color: #555;
+}
+
+.space {
+    margin-left: 10px; /* Ajustez cet espacement selon vos besoins */
+}
+
+.post-content {
+    padding: 20px;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.post-content img,
+.post-content video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.post-actions {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ddd;
+}
+
+.action-buttons button,
+.delete-btn,
+.update-btn {
+    padding: 8px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.like-btn ion-icon,
+.comment-btn ion-icon,
+.share-btn ion-icon,
+.delete-btn ion-icon,
+.update-btn ion-icon {
+    font-size: 24px;
+}
+
+.like-btn ion-icon {
+    color: #e74c3c;
+}
+
+.comment-btn ion-icon {
+    color: #3498db;
+}
+
+.share-btn ion-icon {
+    color: #2ecc71;
+}
+
+.delete-btn ion-icon,
+.update-btn ion-icon {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.delete-btn:hover,
+.update-btn:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    color: #e74c3c;
+}
+
+.update-btn {
+    color: #3498db;
+}
+
+/* Ajout du style pour aligner les boutons J'aime, Commenter et Partager sur la même ligne */
+.action-buttons {
+    display: flex;
+}
