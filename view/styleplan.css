@@ -119,12 +119,14 @@ input
     width: 50%;
     margin-top: 5rem;
     margin-left: 25rem;
+    padding: 50px;
 
     background-color: rgba(255,255,255,0.4);
     backdrop-filter: blur(20px);
     border: 2px solid gray;
     font-size: 200%;
     align-items: center;
+    border-radius: 30px;
     
 }
 
@@ -145,7 +147,7 @@ input
 {
   position: relative;
   font-family:slm, sans-serif;
-  color: red ;
+  color: black ;
 
 }
 
@@ -237,13 +239,15 @@ input
   width:100rem;
   height:5rem;
   align-items:center;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 1rem;
 }
 
 
 .fb
 {
+  transition: 0.5s;
+  margin-top: 100px;
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
@@ -259,10 +263,26 @@ input
 
 .fbtn
 {
+  
+  transition: 0.5s;
+  width: 300px;
+  margin-right: 100px;
+  margin-left: 100px;
+  background: transparent;
   color: #0645AD;
   border: 2px solid  #0645AD;
   border-radius: 10em;
   text-decoration: none;
+}
+.fbtn:active
+{
+  transform: scale(0.96);
+}
+.fbtn:hover
+{
+  
+  transition: 0.5s;
+  background: white;
 }
 
 .container {
