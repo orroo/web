@@ -1,0 +1,206 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #ffffff; 
+}
+.banner {
+    width: 100%;
+    height: 100%;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    
+}
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6; 
+}
+
+.navbar {
+    position: absolute;
+    top: 20px;
+    right: 80px;
+    z-index: 2;
+} 
+
+.navbar button {
+    background-color: transparent; 
+    color: #ffffff; 
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .login {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.annonce {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    color: #ffffff;
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.annonce h1 {
+    font-size: 50px;
+    margin-top : center;
+}
+
+.annonce p {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.annonce button { 
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+} 
+
+.annonce button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.annonce button:active {
+    transform: scale(0.95);
+}
+
+.headline {
+    color: #000000;
+    text-align: center;
+    padding: 0px;
+    margin-top: 250px; 
+}
+
+
+h1 {
+    font-size: 2.5em;
+}
+
+
+
+.image-container {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 70px solid #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: -78px;
+}
+
+.image {
+    align-self: center;
+    width: 100%;
+    height: auto;
+}
+.container {
+    height: 100%;
+    position: absolute;
+    top: 190%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  button
+  {
+    border: none;
+  }
+
+  .btnn {
+    margin-top: 70px;
+    position:relative;
+    display: inline-block;
+    width: 277px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 17px;
+    letter-spacing: 0.045em;
+  }
+
+  .btnn svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .btnn svg rect {
+    stroke-width: 4;
+    stroke-dasharray: 353, 0;
+    stroke-dashoffset: 0;
+    transition: all 600ms ease;
+  }
+
+  .btnn  span {
+    background: rgb(255, 130, 130);
+    background: -moz-linear-gradient(left, #5DA271 0%, #582B11 100%);
+    background: -webkit-linear-gradient(left, #5DA271 0%, #582B11 100%);
+    background: linear-gradient(to right, #5DA271 0%, #582B11 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8282', endColorstr='#e178ed', GradientType=1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .btnn:hover svg rect {
+    stroke-width: 4;
+    stroke-dasharray: 196, 543;
+    stroke-dashoffset: 437;
+  }
+  
